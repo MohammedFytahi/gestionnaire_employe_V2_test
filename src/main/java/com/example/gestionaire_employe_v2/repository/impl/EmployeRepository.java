@@ -87,5 +87,27 @@ public class EmployeRepository implements EmployeRepositoryInterface {
             entityManager.close();
         }
         }
+
+        @Override
+        public void deleteEmploye(int id){
+        EntityManager entityManager = JPAUtil.getEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
+
+        try {
+            transaction.begin();
+            Employe employe = entityManager.find(Employe.class,id);
+            if (employe != null){
+                entityManager.remove(employe);
+            }
+            transaction.commit();
+        }catch (Exception e){
+            if (transaction.isActive()){
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }finally {
+            entityManager.close();
+        }
+        }
     }
 

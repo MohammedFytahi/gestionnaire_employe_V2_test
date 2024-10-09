@@ -32,4 +32,9 @@ public class EmployeService implements EmployeServiceInterface {
     public List<Employe> findAllEmployes(){
         return  employeRepository.findall();
     }
+
+    @Override
+    public void deleteEmploye(int id){
+        employeRepository.deleteEmploye(id);
+    }
 }
