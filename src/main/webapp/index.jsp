@@ -13,6 +13,6 @@
 <a class="btn add" href="view/addOffre.jsp"> offre</a>
 <a class="btn add" href="ListOffreServlet"> offre</a>
 <a class="btn add" href="listEmploye">view Employee</a>
-<a class="btn add" href="view/ajouterRh.jsp">add rh</a>
+<a class="btn add" href="login">add rh</a>
 </body>
 </html>

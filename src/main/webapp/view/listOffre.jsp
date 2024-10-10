@@ -64,6 +64,7 @@
   </style>
 </head>
 <body>
+<%@ include file="header.jsp" %>
 <h1>List of Job Offers</h1>
 <div class="container">
   <c:forEach var="offre" items="${offres}">
@@ -75,7 +76,7 @@
       <p class="card-text"><strong>Statut:</strong> ${offre.statut}</p>
 
 
-      <a href="<c:url value='/ApplicationServlet?offreId=${offre.id}' />" class="btn">Postuler</a>
+      <a href="<c:url value='/AddApplicationServlet?offreId=${offre.id}' />" class="btn">Postuler</a>
     </div>
   </c:forEach>
 </div>
