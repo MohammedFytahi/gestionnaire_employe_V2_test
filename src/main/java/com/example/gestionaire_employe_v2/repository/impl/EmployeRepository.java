@@ -33,9 +33,9 @@ public class EmployeRepository implements EmployeRepositoryInterface {
 
 
 
-        @Override
-        public List<Employe> findall(){
-            List<Employe> employes = new ArrayList<>();
+    @Override
+    public List<Employe> findall(){
+        List<Employe> employes = new ArrayList<>();
         EntityManager entityManager = JPAUtil.getEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
 
@@ -55,7 +55,7 @@ public class EmployeRepository implements EmployeRepositoryInterface {
             entityManager.close();
         }
         return employes;
-        }
+    }
 
 
         @Override

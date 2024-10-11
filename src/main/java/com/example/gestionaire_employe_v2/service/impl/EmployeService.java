@@ -21,7 +21,7 @@ public class EmployeService implements EmployeServiceInterface {
     }
 
     public Employe trouverParId(long id){
-       return employeRepository.findEmployeById(id);
+        return employeRepository.findEmployeById(id);
     }
     @Override
     public void updateEmploye(Employe employe){
