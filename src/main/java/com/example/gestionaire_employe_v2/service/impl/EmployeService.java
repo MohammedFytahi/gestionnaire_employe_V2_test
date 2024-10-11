@@ -1,6 +1,7 @@
 package com.example.gestionaire_employe_v2.service.impl;
 
 import com.example.gestionaire_employe_v2.model.Employe;
+import com.example.gestionaire_employe_v2.model.FamilyAllowance;
 import com.example.gestionaire_employe_v2.repository.impl.EmployeRepository;
 import com.example.gestionaire_employe_v2.service.interf.EmployeServiceInterface;
 
@@ -23,6 +24,9 @@ public class EmployeService implements EmployeServiceInterface {
     public Employe trouverParId(long id){
         return employeRepository.findEmployeById(id);
     }
+
+
+
     @Override
     public void updateEmploye(Employe employe){
         employeRepository.updateEmploye(employe);
@@ -36,5 +40,14 @@ public class EmployeService implements EmployeServiceInterface {
     @Override
     public void deleteEmploye(int id){
         employeRepository.deleteEmploye(id);
+    }
+
+    public Double calculateFamilyAllowance(int employeId) {
+        Employe employe = employeRepository.findEmployeById(employeId);
+        if (employe != null) {
+            FamilyAllowance allowance = new FamilyAllowance();
+            return allowance.calculateAllowance(employe.getChildNbr(), employe.getSalary().doubleValue());
+        }
+        return 0.0;
     }
 }

@@ -15,7 +15,12 @@ public class LeaveRequestService {
     }
 
     public List<LeaveRequest> getAllLeaveRequests() {
-        return leaveRequestRepository.findAll(); // Cette méthode doit être implémentée dans le repository
+        List<LeaveRequest> requests = leaveRequestRepository.findAll();
+        System.out.println("Demandes de congé récupérées : " + requests.size()); // Log pour vérifier le nombre de demandes
+        return requests;
+    }
+    public LeaveRequest getLeaveRequestById(int requestId) {
+        return leaveRequestRepository.findById(requestId);
     }
 
     public void updateLeaveRequestStatus(int requestId, Statut status) {

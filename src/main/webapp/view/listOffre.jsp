@@ -75,8 +75,14 @@
       <p class="card-text"><strong>Période de validité:</strong> ${offre.validityPeriode}</p>
       <p class="card-text"><strong>Statut:</strong> ${offre.statut}</p>
 
+      <c:choose>
+        <c:when test="${empty sessionScope.user}">
+          <a href="<c:url value='/AddApplicationServlet?offreId=${offre.id}' />" class="btn">Postuler</a>
+        </c:when>
+        <c:otherwise>
 
-      <a href="<c:url value='/AddApplicationServlet?offreId=${offre.id}' />" class="btn">Postuler</a>
+        </c:otherwise>
+      </c:choose>
     </div>
   </c:forEach>
 </div>

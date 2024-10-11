@@ -11,28 +11,21 @@
                 <li><a href="/services">Services</a></li>
                 <li><a href="/contact">Contact</a></li>
 
-                <!-- Si l'utilisateur est connecté -->
                 <c:choose>
                     <c:when test="${not empty sessionScope.user}">
-
-                        <!-- Lien vers "Offres" pour tous les utilisateurs connectés -->
                         <li><a href="ListOffreServlet">Offres</a></li>
-
-                        <!-- Lien "Ajouter Offre" pour les utilisateurs RH -->
                         <c:if test="${sessionScope.user.role == 'RH'}">
                             <li><a href="addOffre">Ajouter Offre</a></li>
                         </c:if>
-
-
+                        <c:if test="${sessionScope.user.role == 'ADMIN'}">
+                            <li><a href="adminLeaveRequests">Voir Demandes de Congé</a></li>
+                        </c:if>
                         <c:if test="${sessionScope.user.role == 'EMPLOYE'}">
                             <li><a href="view/leaveRequestForm.jsp">Demande de congé</a></li>
                         </c:if>
-
-                        <!-- Lien pour déconnexion -->
                         <li><a href="logout">Déconnexion</a></li>
                     </c:when>
                     <c:otherwise>
-
                         <li><a href="login">Login</a></li>
                     </c:otherwise>
                 </c:choose>
@@ -43,9 +36,12 @@
 
 <style>
     .navbar {
-        background-color: #333;
-        color: #fff;
+        background-color: #333; /* Couleur de fond sombre */
+        color: #fff; /* Couleur du texte */
         padding: 15px;
+        position: relative; /* Nécessaire pour le z-index */
+        z-index: 1000; /* Pour être au-dessus des autres éléments */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Ombre pour la profondeur */
     }
     .navbar .container {
         display: flex;
@@ -66,11 +62,11 @@
         margin-right: 20px;
     }
     .nav-links li a {
-        color: white;
+        color: white; /* Couleur du texte */
         text-decoration: none;
         font-size: 18px;
     }
     .nav-links li a:hover {
-        text-decoration: underline;
+        text-decoration: underline; /* Effet au survol */
     }
 </style>

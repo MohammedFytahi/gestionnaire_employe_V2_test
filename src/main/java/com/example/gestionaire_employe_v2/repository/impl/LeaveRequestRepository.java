@@ -31,8 +31,13 @@ public class LeaveRequestRepository {
 
     public List<LeaveRequest> findAll() {
         EntityManager entityManager = JPAUtil.getEntityManager();
-        TypedQuery<LeaveRequest> query = entityManager.createQuery("SELECT lr FROM LeaveRequest lr", LeaveRequest.class);
-        return query.getResultList();
+        try {
+            TypedQuery<LeaveRequest> query = entityManager.createQuery("SELECT lr FROM LeaveRequest lr", LeaveRequest.class);
+            return query.getResultList();
+        }finally {
+            entityManager.close();
+        }
+
     }
 
     public void updateStatus(int requestId, Statut status) {
@@ -50,6 +55,15 @@ public class LeaveRequestRepository {
                 transaction.rollback();
             }
             e.printStackTrace();
+        } finally {
+            entityManager.close();
+        }
+    }
+
+    public LeaveRequest findById(int requestId) {
+        EntityManager entityManager = JPAUtil.getEntityManager();
+        try {
+            return entityManager.find(LeaveRequest.class, requestId);
         } finally {
             entityManager.close();
         }
