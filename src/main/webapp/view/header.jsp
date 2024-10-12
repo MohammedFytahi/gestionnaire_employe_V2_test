@@ -6,19 +6,20 @@
         <div class="container">
             <a href="/" class="logo">Mon Application</a>
             <ul class="nav-links">
-                <li><a href="/home">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/services">Services</a></li>
-                <li><a href="/contact">Contact</a></li>
+
 
                 <c:choose>
                     <c:when test="${not empty sessionScope.user}">
-                        <li><a href="ListOffreServlet">Offres</a></li>
-                        <c:if test="${sessionScope.user.role == 'RH'}">
-                            <li><a href="addOffre">Ajouter Offre</a></li>
-                        </c:if>
                         <c:if test="${sessionScope.user.role == 'ADMIN'}">
                             <li><a href="adminLeaveRequests">Voir Demandes de Congé</a></li>
+                            <li><a href="ListOffreServlet">Offres</a></li>
+                            <li><a href="listEmploye">Employés</a></li>
+                            <li><a href="view/showAllowance.jsp">Allocations</a></li>
+                        </c:if>
+                        <c:if test="${sessionScope.user.role == 'RH'}">
+                            <li><a href="ListOffreServlet">Offres</a></li>
+                            <li><a href="addOffre">Ajouter Offre</a></li>
+                            <li><a href="ApplicationServlet">Application</a></li>
                         </c:if>
                         <c:if test="${sessionScope.user.role == 'EMPLOYE'}">
                             <li><a href="view/leaveRequestForm.jsp">Demande de congé</a></li>
@@ -26,6 +27,7 @@
                         <li><a href="logout">Déconnexion</a></li>
                     </c:when>
                     <c:otherwise>
+                        <li><a href="ListOffreServlet">Offres</a></li>
                         <li><a href="login">Login</a></li>
                     </c:otherwise>
                 </c:choose>

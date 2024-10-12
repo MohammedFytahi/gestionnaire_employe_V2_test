@@ -61,11 +61,24 @@
     .btn:hover {
       background-color: #0056b3; /* Darker blue on hover */
     }
+
+    .add-offer {
+      text-align: center; /* Center align the button */
+      margin-bottom: 20px; /* Space below the button */
+    }
   </style>
 </head>
 <body>
 <%@ include file="header.jsp" %>
 <h1>List of Job Offers</h1>
+
+
+<c:if test="${not empty sessionScope.user && sessionScope.user.role == 'RH'}">
+  <div class="add-offer">
+    <a href="addOffre" class="btn">Ajouter une offre</a>
+  </div>
+</c:if>
+
 <div class="container">
   <c:forEach var="offre" items="${offres}">
     <div class="card">

@@ -72,6 +72,7 @@
     </style>
 </head>
 <body>
+<%@ include file="header.jsp" %>
 <h1>Add a New Job Offer</h1>
 
 <div class="form-container">
