@@ -19,7 +19,7 @@ public class AdminLeaveRequestsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<LeaveRequest> leaveRequests = leaveRequestService.getAllLeaveRequests();
-        System.out.println("Nombre de demandes de congé : " + leaveRequests.size()); // Log pour vérifier le nombre de demandes
+        System.out.println("Nombre de demandes de congé : " + leaveRequests.size());
         request.setAttribute("leaveRequests", leaveRequests);
         request.getRequestDispatcher("/view/AdminLeaveRequests.jsp").forward(request, response);
     }

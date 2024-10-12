@@ -16,7 +16,7 @@ public class LeaveRequestService {
 
     public List<LeaveRequest> getAllLeaveRequests() {
         List<LeaveRequest> requests = leaveRequestRepository.findAll();
-        System.out.println("Demandes de congé récupérées : " + requests.size()); // Log pour vérifier le nombre de demandes
+        System.out.println("Demandes de congé récupérées : " + requests.size());
         return requests;
     }
     public LeaveRequest getLeaveRequestById(int requestId) {
@@ -24,6 +24,6 @@ public class LeaveRequestService {
     }
 
     public void updateLeaveRequestStatus(int requestId, Statut status) {
-        leaveRequestRepository.updateStatus(requestId, status); // Implémentez cette méthode pour mettre à jour le statut
+        leaveRequestRepository.updateStatus(requestId, status);
     }
 }

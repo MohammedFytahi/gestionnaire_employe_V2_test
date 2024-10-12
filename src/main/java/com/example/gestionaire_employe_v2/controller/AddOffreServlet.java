@@ -62,7 +62,7 @@ public class AddOffreServlet extends HttpServlet {
             String title = request.getParameter("title");
             String description = request.getParameter("description");
             String requirements = request.getParameter("requirements");
-            LocalDate datePosted = LocalDate.now(); // Date automatique
+            LocalDate datePosted = LocalDate.now();
             LocalDate validityPeriode = LocalDate.parse(request.getParameter("validityPeriode"));
             Statut statut = Statut.valueOf(request.getParameter("statut"));
 

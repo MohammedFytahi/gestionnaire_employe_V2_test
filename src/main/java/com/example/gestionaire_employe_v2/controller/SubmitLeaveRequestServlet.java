@@ -44,7 +44,6 @@ public class SubmitLeaveRequestServlet extends HttpServlet {
         LocalDate startDate = LocalDate.parse(startDateStr);
         LocalDate endDate = LocalDate.parse(endDateStr);
 
-        // Handling file upload
         String supportingDocs = request.getPart("supportingDocs").getSubmittedFileName();
 
         LeaveRequest leaveRequest = new LeaveRequest();

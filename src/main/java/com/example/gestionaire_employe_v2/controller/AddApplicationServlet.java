@@ -69,8 +69,8 @@ public class AddApplicationServlet extends HttpServlet {
         Application application = new Application(candidateName, email, Arrays.asList(skillsArray), offre);
 
         try {
-            applicationService.saveApplication(application); // Plus besoin de vérifier un booléen
-            response.sendRedirect(request.getContextPath() + "/success.jsp");
+            applicationService.saveApplication(application);
+            response.sendRedirect(request.getContextPath() + "/ApplicationServlet");
         } catch (Exception e) {
             e.printStackTrace();
             response.sendRedirect(request.getContextPath() + "/error.jsp");

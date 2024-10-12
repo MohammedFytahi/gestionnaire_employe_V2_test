@@ -30,7 +30,7 @@ public class LoginServlet extends HttpServlet {
         if (user != null) {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
-            session.setAttribute("userId", user.getId()); // Ensure userId is set here
+            session.setAttribute("userId", user.getId());
 
             switch (user.getRole()) {
                 case ADMIN:
@@ -45,7 +45,7 @@ public class LoginServlet extends HttpServlet {
                     break;
             }
         } else {
-            // Sending an error message to the login page
+
             request.setAttribute("errorMessage", "Email ou mot de passe incorrect.");
             request.getRequestDispatcher("/view/login.jsp").forward(request, response);
         }
